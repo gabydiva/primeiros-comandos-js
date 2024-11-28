@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora ˖* ﾟ ❀</title>
+    <style>
+
+        /*fundo Do site*/
+        body {
+            text-align: center;
+            margin: 20px;
+            background-color: #ffdef5;
+            font-family:'Poppins', sans-serif;
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+
+             /*paragarafo em baixo*/
+            .sla{
+                color: #655578;
+            }
+
+        .tema {
+            color: #655578;
+            margin-top: 90px;
+            font-size: 3em;
+
+        }
+
+        /*caixa da calculadora*/
+        .calculadora {
+            max-width: 300px;
+            margin: 50px auto;
+            padding: 30px;
+            border: 2px solid #655578;
+            border-radius: 20px;
+
+
+        }
+
+        /*campos para digitar*/
+        input[type="numero"], select {
+            width: 95%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /*botão de calcular*/
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            background-color: #655578;
+            color: #ffdef5;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #f7bae5;
+            color: #655578;
+            border: 1px solid #655578;
+        }
+
+        /*resutado*/
+        .result {
+            margin-top: 20px;
+            font-size: 1.7em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="tema">꒰ calculadora ˖* ﾟ ❀</h1>
+
+    <div class="calculadora">
+        <input type="numero" id="num1" placeholder="Digite o primeiro número">
+        <input type="numero" id="num2" placeholder="Digite o segundo número">
+        <select id="operaçao">
+            <option value="soma">Soma</option>
+            <option value="subtraçao">Subtração</option>
+            <option value="multiplicaçao">Multiplicação</option>
+            <option value="divisao">Divisão</option>
+        </select>
+        <button onclick="calcular()">Calcular</button>
+        <div class="resultado" id="resultado">Resultado: </div>
+    </div>
+    <p class="sla">꒰ feito por gabydiva. ˖* ﾟ ❀</p>
+    <p class="sla">Orientador: Israel Nuncio Dias Lucania.</p>
+    <p class="sla">Estudante: Gabriely Jó da Silva.</p>
+
+    <script>
+        function calcular() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const operaçao = document.getElementById('operaçao').value;
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                result = 'Por favor, insira números válidos.';
+            } else {
+                switch (operaçao) {
+                    case 'soma':
+                        resultado = num1 + num2;
+                        break;
+                    case 'subtraçao':
+                        resultado = num1 - num2;
+                        break;
+                    case 'multiplicaçao':
+                        resultado = num1 * num2;
+                        break;
+                    case 'divisao':
+                        resultado = num2 !== 0 ? num1 / num2 : 'Erro: divisão por zero.';
+                        break;
+                    default:
+                        resultado = 'Operação inválida.';
+                }
+            }
+
+            document.getElementById('resultado').innerText = `Resultado: ${resultado}`;
+        }
+    </script>
+</body>
+</html>
